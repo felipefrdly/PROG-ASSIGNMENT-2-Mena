@@ -23,9 +23,9 @@ class Product:
             unitsSold = random.randint(self._approxMonthlyUnits -10 , self._approxMonthlyUnits + 10) #estimates the units sold by generating a number between 1 and the units manufactured +/- 10
             newStock = stock - unitsSold #creates a variable to store the stock after the units are sold
             print(f"Month {i}:") #Display the month
-            print(f"Manufactured: {self._approxMonthlyUnits}") #Display the manufactured units
-            print(f"Sold: {unitsSold}") #displays the units sold
-            print(f"Stock: {newStock}\n") #displays the new stock
+            print(f"|   Manufactured: {self._approxMonthlyUnits}") #Display the manufactured units
+            print(f"|   Sold: {unitsSold}") #displays the units sold
+            print(f"|   Stock: {newStock}") #displays the new stock
             stock = newStock + self._approxMonthlyUnits #updates the stock for next month by adding the monthly units
             
             salesOfYear += unitsSold #adds the units sold that month to the total
@@ -40,29 +40,29 @@ class Product:
 
 
 class Application:
-    def InputInt(self):
+    def InputInt(self, data):
         while True: #users in the loop until a suitable choice is given
             try:
-                question = int(input("TEST INT: ")) #asks question as an int
+                question = int(input("Please enter the " + data + ": ")) #asks question as an int
                 return(question) #returns answer if true
             except ValueError: #if the value of the input is not an int display debug message and loop
-                print("Not an int")
+                print("Please enter the data as a whole number!")
                 continue
 
-    def InputStr(self):
+    def InputStr(self, data):
         while True:
             try:
-                question = str(input("TEST STR: "))
+                question = str(input("Please enter the " + data +": "))
                 return(question)
             except ValueError:
-                print("Not an str")
+                print("Please enter the data in text!")
                 continue
 
-    def InputFlo(self):
+    def InputFlo(self, data):
         while True:
             try:
-                question = float(input("TEST FLOAT: "))
+                question = float(input("Please enter the " + data + ": "))
                 return(question)
             except ValueError:
-                print("Not an float")
+                print("Please enter the data as a decimal number!")
                 continue
