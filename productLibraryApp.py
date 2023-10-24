@@ -5,8 +5,10 @@
 from productLibrary import Product
 from productLibrary import Application
 
-#test = Product(100,"soccerBall", 250.99, 200.99, 100, 100)
-
+"""
+Main holds all the methods made in productLibrary.py and organizes them to work in tandem
+Main is also responsible for placing UI elements unrelated to the class in the terminal
+"""
 def main():
     print("Welcome to the Product Inventory")
     userInput = Application()
@@ -28,3 +30,4 @@ def main():
     productInst.PredictStockStatement()
 
 main()
+

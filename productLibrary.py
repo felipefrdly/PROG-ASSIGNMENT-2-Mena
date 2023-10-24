@@ -3,8 +3,11 @@
 #This program is designed to calculate and simulate sales metrics of diffrent products that a user creates. this file contains all objects that the program revolves around
 import random
 
+"""
+The product class is meant to handle all math and display all results in a visually pleasing way
+"""
 class Product:
-    #initalizes all variables on objects creation
+    """This method initalizes all variables on objects creation"""
     def __init__(self, proCode, proName, proSalePrice, proManuCost, proStockLevel, approxMonthlyUnits):
         self._proCode = proCode
         self._proName = proName
@@ -13,7 +16,7 @@ class Product:
         self._proStockLevel =  proStockLevel
         self._approxMonthlyUnits = approxMonthlyUnits
         
-    #THIS WAS A PAIN TO SET UP :(
+    """This method handles math of the stock statement and displays it for each month"""
     def PredictStockStatement(self):
         stock = self._approxMonthlyUnits + self._proStockLevel #sets the stock by adding the monthly units made and the current stock level
         salesOfYear = 0 #empty variable for storing yearly sales
@@ -34,11 +37,10 @@ class Product:
         netProfit = (salesOfYear * self._proSalePrice) - (manufactAYear * self._proManuCost) #forumla that calculates net profit
         print(f"Net Proftis: ${round(netProfit, 2)} CAD") #displays net profit
 
-#test = Product(100,"soccerBall", 250.99, 200.99, 100, 100)
-
-#test.PredictStockStatement()
-
-
+"""
+The Application class handles all user input that the program needs. Do note that each method is built the same, please use the comments 
+from the first method if you want to understand whats going on
+"""
 class Application:
     def InputInt(self, data):
         while True: #users in the loop until a suitable choice is given
@@ -49,7 +51,7 @@ class Application:
                 print("Please enter the data as a whole number!")
                 continue
 
-    def InputStr(self, data):
+    def InputStr(self, data): #does the same thing as method above but with strings
         while True:
             try:
                 question = str(input("Please enter the " + data +": "))
@@ -58,7 +60,7 @@ class Application:
                 print("Please enter the data in text!")
                 continue
 
-    def InputFlo(self, data):
+    def InputFlo(self, data): #does the same thing as method above but with floats
         while True:
             try:
                 question = float(input("Please enter the " + data + ": "))
