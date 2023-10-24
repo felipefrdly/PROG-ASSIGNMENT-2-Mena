@@ -13,9 +13,6 @@ class Product:
         self._proStockLevel =  proStockLevel
         self._approxMonthlyUnits = approxMonthlyUnits
         
-    def SimulateMonthlyProduction(self):
-        pass
-
     #THIS WAS A PAIN TO SET UP :(
     def PredictStockStatement(self):
         stock = self._approxMonthlyUnits + self._proStockLevel #sets the stock by adding the monthly units made and the current stock level
@@ -37,7 +34,44 @@ class Product:
         netProfit = (salesOfYear * self._proSalePrice) - (manufactAYear * self._proManuCost) #forumla that calculates net profit
         print(f"Net Proftis: ${round(netProfit, 2)} CAD") #displays net profit
 
-test = Product(100,"soccerBall", 250.99, 200.99, 100, 100)
+#test = Product(100,"soccerBall", 250.99, 200.99, 100, 100)
 
-#print(test.SimulateProductionSales())
-test.PredictStockStatement()
+#test.PredictStockStatement()
+
+
+class Application:
+    def InputInt(self):
+        while True: #users in the loop until a suitable choice is given
+            try:
+                question = int(input("TEST INT: ")) #asks question as an int
+                return(question) #returns answer if true
+            except ValueError: #if the value of the input is not an int display debug message and loop
+                print("Not an int")
+                continue
+
+    def InputStr(self):
+        while True:
+            try:
+                question = str(input("TEST STR: "))
+                return(question)
+            except ValueError:
+                print("Not an str")
+                continue
+
+    def InputFlo(self):
+        while True:
+            try:
+                question = float(input("TEST FLOAT: "))
+                return(question)
+            except ValueError:
+                print("Not an float")
+                continue
+
+test = Application()
+value1 = test.InputInt()
+#value2 = test.InputStr()
+#value3 = test.InputFlo()
+
+print(value1)
+
+
