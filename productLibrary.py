@@ -66,12 +66,3 @@ class Application:
             except ValueError:
                 print("Not an float")
                 continue
-
-test = Application()
-value1 = test.InputInt()
-#value2 = test.InputStr()
-#value3 = test.InputFlo()
-
-print(value1)
-
-
